@@ -1,43 +1,198 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    TextEditingController email = TextEditingController();
-    TextEditingController password = TextEditingController();
+  State<LoginPage> createState() => _LoginPageState();
+}
 
+class _LoginPageState extends State<LoginPage> {
+  bool remember = false;
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          Center(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color(0xffC2DDFF),
+          Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Image.asset(
+                'assets/halfcircle.png',
+                width: double.infinity,
+                fit: BoxFit.cover,
               ),
-              margin: EdgeInsets.only(top: 200, left: 20, right: 20),
-              // padding: EdgeInsets.only(top: 1000),
-              width: double.infinity,
-              height: 300,
-              child: Column(
-                children: [
-                  TextField(
-                    controller: email,
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(),
-                      labelText: "Email",
-                    ),
+              Positioned(
+                top: 60,
+                child: Image.asset('assets/logo/logo.png', width: 150),
+              ),
+            ],
+          ),
+          // Positioned(
+          //   top: 100,
+          //   left: 40,
+          //   right: 40,
+
+          //   child: Image.asset('assets/man.png', width: 100),
+          // ),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: Color(0xffC2DDFF),
+                ),
+                margin: EdgeInsets.only(top: 70, left: 20, right: 20),
+                padding: EdgeInsets.only(bottom: 40),
+                width: double.infinity,
+                // height: 500,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 70.0,
+                    left: 10,
+                    right: 10,
                   ),
-                  TextField(controller: password),
-                  // ElevatedButton(onPressed: () {}, child: Text("Login")),
-                ],
+                  child: Column(
+                    children: [
+                      TextField(
+                        controller: email,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Colors.blue.shade800,
+                              width: 2,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Colors.blue.shade800,
+                              width: 2,
+                            ),
+                          ),
+                          hintText: "Email",
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      TextField(
+                        controller: password,
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Colors.blue.shade800,
+                              width: 2,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              color: Colors.blue.shade800,
+                              width: 2,
+                            ),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: "Password",
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: remember,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                remember = value ?? false;
+                              });
+                            },
+                          ),
+                          Text("Remember me"),
+                        ],
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 50,
+
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Color(0xff23538D),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Center(
+                        child: InkWell(
+                          child: Text(
+                            "Forgot Password?",
+                            style: TextStyle(
+                              color: Color(0xff23538D),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          onTap: () {},
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Center(
+                        child: Icon(
+                          Icons.manage_accounts,
+                          size: 55,
+                          color: Color(0xff23538D),
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          "Create new account",
+                          style: TextStyle(
+                            color: Color(0xff23538D),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
+              Positioned(
+                top: 20,
+                child: Image.asset('assets/man.png', width: 120),
+                // size: 40,
+                // color: Color(0xff23538D),
+              ),
+            ],
           ),
         ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.only(bottom: 10),
+        child: Text(
+          " Info brain technologies Pvt. Ltd.",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Color(0xff23538D),
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
