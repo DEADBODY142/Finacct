@@ -1,4 +1,6 @@
+import 'package:finacct/common/commonforall.dart';
 import 'package:finacct/pages/login.dart';
+import 'package:finacct/pages/register.dart';
 import 'package:flutter/material.dart';
 
 void main() {
