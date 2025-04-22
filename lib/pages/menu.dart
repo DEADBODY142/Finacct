@@ -21,15 +21,15 @@ class Menu extends StatelessWidget {
           Commonforall(),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: 45.0),
+              padding: const EdgeInsets.only(top: 20.0),
               child: GridView.builder(
                 itemCount: imgPaths.length, // Show exactly 6 images
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // 3 columns
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
                 ),
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(14),
                 itemBuilder: (context, index) {
                   return Image.asset(imgPaths[index], fit: BoxFit.cover);
                 },
