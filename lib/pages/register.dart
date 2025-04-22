@@ -1,3 +1,4 @@
+import 'package:finacct/common/bottom.dart';
 import 'package:finacct/common/common.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,8 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,7 +141,6 @@ class _RegisterState extends State<Register> {
                           ),
                           StatefulBuilder(
                             builder: (context, setState) {
-                              bool _obscureText = true;
                               return TextField(
                                 obscureText: _obscureText,
                                 decoration: InputDecoration(
@@ -200,6 +202,7 @@ class _RegisterState extends State<Register> {
                           style: TextStyle(
                             color: Color(0xff23538D),
                             fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -211,6 +214,7 @@ class _RegisterState extends State<Register> {
           ),
         ),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

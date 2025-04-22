@@ -20,12 +20,8 @@ class CommonImages extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 // Finact logo
-                Image.asset(
-                  'assets/common/finact.png',
-                  width: 120,
-                  height: 120,
-                ),
-                const SizedBox(height: 10), // Reduced spacing
+                Image.asset('assets/common/finact.png', width: 150, height: 70),
+                // const SizedBox(height: 10), // Reduced spacing
                 // Register image
                 Image.asset(
                   'assets/common/register.png',

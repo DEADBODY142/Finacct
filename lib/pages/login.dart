@@ -1,3 +1,5 @@
+import 'package:finacct/common/bottom.dart';
+import 'package:finacct/pages/register.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Positioned(
                 top: 60,
-                child: Image.asset('assets/logo/logo.png', width: 150),
+                child: Image.asset('assets/common/finact.png', width: 150),
               ),
             ],
           ),
@@ -125,7 +127,14 @@ class _LoginPageState extends State<LoginPage> {
                           style: OutlinedButton.styleFrom(
                             backgroundColor: Color(0xff23538D),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Register(),
+                              ),
+                            );
+                          },
                           child: Text(
                             "Login",
                             style: TextStyle(
@@ -182,18 +191,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ],
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 10),
-        child: Text(
-          " Info brain technologies Pvt. Ltd.",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Color(0xff23538D),
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }
