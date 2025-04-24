@@ -1,6 +1,9 @@
 import 'package:finacct/common/commonforall.dart';
+import 'package:finacct/demo.dart';
 import 'package:finacct/pages/login.dart';
 import 'package:finacct/pages/menu.dart';
+import 'package:finacct/pages/receipt.dart';
+import 'package:finacct/pages/receipt_info.dart';
 import 'package:finacct/pages/register.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +17,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Menu());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: ReceiptInfo());
   }
 }

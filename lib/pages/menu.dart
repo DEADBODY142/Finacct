@@ -1,5 +1,6 @@
 import 'package:finacct/common/bottom.dart';
 import 'package:finacct/common/commonforall.dart';
+import 'package:finacct/pages/receipt.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
@@ -11,34 +12,47 @@ class Menu extends StatelessWidget {
     'assets/menu/pushdata.png',
     'assets/menu/pull.png',
   ];
+
+  final List<Widget> paths = [Receipt()];
   Menu({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Commonforall(),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Commonforall(),
+            Padding(
               padding: const EdgeInsets.only(top: 45.0),
               child: GridView.builder(
-                itemCount: imgPaths.length, // Show exactly 6 images
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: imgPaths.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // 3 columns
-                  crossAxisSpacing: 8,
-                  mainAxisSpacing: 8,
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
                 ),
                 padding: const EdgeInsets.all(10),
                 itemBuilder: (context, index) {
-                  return Image.asset(imgPaths[index], fit: BoxFit.cover);
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => paths[index]),
+                      );
+                    },
+                    child: Image.asset(imgPaths[index], fit: BoxFit.cover),
+                  );
                 },
               ),
             ),
-          ),
-        ],
+            BottomBar(),
+          ],
+        ),
       ),
-      bottomNavigationBar: BottomBar(),
+      // bottomNavigationBar: BottomBar(),
     );
     // );
   }

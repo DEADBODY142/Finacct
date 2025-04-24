@@ -6,16 +6,16 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(bottom: 10),
-        child: Text(
-          " Info brain technologies Pvt. Ltd.",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Color(0xff23538D),
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-          ),
+      padding: EdgeInsets.only(top: 10, bottom: 10),
+      child: Text(
+        " Info brain technologies Pvt. Ltd.",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Color(0xff23538D),
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
         ),
-      );
+      ),
+    );
   }
 }
