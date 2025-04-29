@@ -1,0 +1,30 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+  
+    {
+      "name": "Finacct",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug"
+      // "args": ["--enable-software-rendering"]
+    },
+    {
+      "name": "Finacct (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "args": ["--enable-impeller=false"]
+    },
+    {
+      "name": "Finacct (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "args": ["--enable-impeller=false"]
+    }
+  ]
+}
