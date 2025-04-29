@@ -62,6 +62,7 @@ flutter:
     - assets/logo/
     - assets/common/
     - assets/menu/
+    - assets/profile/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

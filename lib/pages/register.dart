@@ -25,6 +25,7 @@ class _RegisterState extends State<Register> {
                 margin: const EdgeInsets.only(bottom: 50),
                 child: const CommonImages(),
               ),
+
               // Rest of your form remains the same
               Container(
                 decoration: BoxDecoration(
@@ -78,50 +79,50 @@ class _RegisterState extends State<Register> {
                         ],
                       ),
                     ),
-                    // Phone Number Field
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(right: 15),
-                            child: Text(
-                              'Phone Number',
-                              style: TextStyle(
-                                color: Color(0xff23538D),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: TextField(
-                              keyboardType: TextInputType.phone,
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide.none,
-                                ),
-                                contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 15,
-                                  horizontal: 20,
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                    color: Color(0xff1F41BB),
-                                    width: 3.0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // // Phone Number Field
+                    // Padding(
+                    //   padding: const EdgeInsets.symmetric(horizontal: 20),
+                    //   child: Row(
+                    //     crossAxisAlignment: CrossAxisAlignment.center,
+                    //     children: [
+                    //       const Padding(
+                    //         padding: EdgeInsets.only(right: 15),
+                    //         child: Text(
+                    //           'Phone Number',
+                    //           style: TextStyle(
+                    //             color: Color(0xff23538D),
+                    //             fontSize: 16,
+                    //             fontWeight: FontWeight.w500,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //       Expanded(
+                    //         child: TextField(
+                    //           keyboardType: TextInputType.phone,
+                    //           decoration: InputDecoration(
+                    //             filled: true,
+                    //             fillColor: Colors.white,
+                    //             border: OutlineInputBorder(
+                    //               borderRadius: BorderRadius.circular(10),
+                    //               borderSide: BorderSide.none,
+                    //             ),
+                    //             contentPadding: const EdgeInsets.symmetric(
+                    //               vertical: 15,
+                    //               horizontal: 20,
+                    //             ),
+                    //             focusedBorder: OutlineInputBorder(
+                    //               borderRadius: BorderRadius.circular(10),
+                    //               borderSide: const BorderSide(
+                    //                 color: Color(0xff1F41BB),
+                    //                 width: 3.0,
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     // Password Field
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
