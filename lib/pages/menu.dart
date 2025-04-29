@@ -1,5 +1,6 @@
 import 'package:finacct/common/bottom.dart';
 import 'package:finacct/common/commonforall.dart';
+import 'package:finacct/pages/profile.dart';
 import 'package:finacct/pages/receipt.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class Menu extends StatelessWidget {
     'assets/menu/pull.png',
   ];
 
-  final List<Widget> paths = [Receipt()];
+  final List<Widget> paths = [Receipt(), Profile()];
   Menu({super.key});
 
   @override

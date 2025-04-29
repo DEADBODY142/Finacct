@@ -6,7 +6,7 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 10, bottom: 10),
+      padding: EdgeInsets.only(bottom: 5),
       child: Text(
         " Info brain technologies Pvt. Ltd.",
         textAlign: TextAlign.center,

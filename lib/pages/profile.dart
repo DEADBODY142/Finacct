@@ -14,156 +14,157 @@ class Profile extends StatelessWidget {
     var name = 'RAM BAHADUR SHRESTHA';
     var url = 'https://internal.infobraintechs.com/api/collector';
     var client = 'Demo';
-    final containerHeight = screenHeight * 0.26;
+    final containerHeight = screenHeight * 0.3;
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             const Commonforall(),
             SizedBox(height: screenHeight * 0.04),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
-                child: Column(
-                  children: [
-                    // First Container
-                    Container(
-                      height: containerHeight,
-                      width: double.infinity,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+              child: Column(
+                children: [
+                  // First Container
+                  Container(
+                    height: containerHeight,
+                    width: double.infinity,
+                    padding: EdgeInsets.only(
+                      left: screenWidth * 0.04,
+                      right: screenWidth * 0.04,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xffC2DDFF),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: ListView(
+                      physics: NeverScrollableScrollPhysics(),
+                      children: [
+                        // First Row with ID and Logout
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: _buildImageWithText(
+                                'assets/profile/id.png',
+                                'ID',
+                                name,
+                                screenWidth,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginPage(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                width: screenWidth * 0.30,
+                                height: screenWidth * 0.12,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xffC2DDFF),
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                      'assets/profile/logout.png',
+                                    ),
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: screenHeight * 0.02),
+                        _buildImageWithTextRow(
+                          'assets/profile/URL.png',
+                          'URL',
+                          url,
+                          screenWidth,
+                        ),
+                        SizedBox(height: screenHeight * 0.02),
+                        _buildImageWithTextRow(
+                          'assets/profile/client.png',
+                          'Client Alies',
+                          client,
+                          screenWidth,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: screenHeight * 0.02),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: screenWidth * 0.02),
+                      child: Text(
+                        'Data Sync Options',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: screenWidth * 0.045,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // Second Container
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Menu()),
+                      );
+                    },
+                    child: Container(
+                      height: screenHeight * 0.12,
+                      margin: EdgeInsets.only(top: screenHeight * 0.02),
                       padding: EdgeInsets.all(screenWidth * 0.04),
                       decoration: BoxDecoration(
                         color: const Color(0xffC2DDFF),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: ListView(
-                        physics: NeverScrollableScrollPhysics(),
-                        children: [
-                          // First Row with ID and Logout
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: _buildImageWithText(
-                                  'assets/profile/id.png',
-                                  'ID',
-                                  name,
-                                  screenWidth,
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => LoginPage(),
-                                    ),
-                                  );
-                                },
-                                child: Container(
-                                  width: screenWidth * 0.30,
-                                  height: screenWidth * 0.12,
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xffC2DDFF),
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: const DecorationImage(
-                                      image: AssetImage(
-                                        'assets/profile/logout.png',
-                                      ),
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: screenHeight * 0.02),
-                          _buildImageWithTextRow(
-                            'assets/profile/URL.png',
-                            'URL',
-                            url,
-                            screenWidth,
-                          ),
-                          SizedBox(height: screenHeight * 0.02),
-                          _buildImageWithTextRow(
-                            'assets/profile/client.png',
-                            'Client Alies',
-                            client,
-                            screenWidth,
-                          ),
-                        ],
+                      child: _buildImageWithTextRow(
+                        'assets/profile/fetch.png',
+                        'Fetch New Records Only',
+                        'Only download new customer records from the server',
+                        screenWidth,
                       ),
                     ),
+                  ),
 
-                    SizedBox(height: screenHeight * 0.02),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: EdgeInsets.only(left: screenWidth * 0.02),
-                        child: Text(
-                          'Data Sync Options',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: screenWidth * 0.045,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                  // Third Container
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Menu()),
+                      );
+                    },
+                    child: Container(
+                      height: screenHeight * 0.12,
+                      margin: EdgeInsets.only(top: screenHeight * 0.02),
+                      padding: EdgeInsets.all(screenWidth * 0.04),
+                      decoration: BoxDecoration(
+                        color: const Color(0xffC2DDFF),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: _buildImageWithTextRow(
+                        'assets/profile/fetchall.png',
+                        'Fetch All Data',
+                        'Replace all existing records with fresh data',
+                        screenWidth,
                       ),
                     ),
-
-                    // Second Container
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Menu()),
-                        );
-                      },
-                      child: Container(
-                        height: screenHeight * 0.12,
-                        margin: EdgeInsets.only(top: screenHeight * 0.02),
-                        padding: EdgeInsets.all(screenWidth * 0.04),
-                        decoration: BoxDecoration(
-                          color: const Color(0xffC2DDFF),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: _buildImageWithTextRow(
-                          'assets/profile/fetch.png',
-                          'Fetch New Records Only',
-                          'Only download new customer records from the server',
-                          screenWidth,
-                        ),
-                      ),
-                    ),
-
-                    // Third Container
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Menu()),
-                        );
-                      },
-                      child: Container(
-                        height: screenHeight * 0.12,
-                        margin: EdgeInsets.only(top: screenHeight * 0.02),
-                        padding: EdgeInsets.all(screenWidth * 0.04),
-                        decoration: BoxDecoration(
-                          color: const Color(0xffC2DDFF),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: _buildImageWithTextRow(
-                          'assets/profile/fetchall.png',
-                          'Fetch All Data',
-                          'Replace all existing records with fresh data',
-                          screenWidth,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

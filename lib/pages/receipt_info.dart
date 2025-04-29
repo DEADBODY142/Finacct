@@ -1,6 +1,8 @@
 import 'package:finacct/common/commonforall.dart';
 import 'package:finacct/common/searchwidget.dart';
 import 'package:finacct/common/style/boldtext.dart';
+import 'package:finacct/form/leftside.dart';
+import 'package:finacct/form/rightside.dart';
 import 'package:flutter/material.dart';
 
 class ReceiptInfo extends StatefulWidget {
@@ -11,7 +13,7 @@ class ReceiptInfo extends StatefulWidget {
 }
 
 class _ReceiptInfoState extends State<ReceiptInfo> {
-  bool ismore = false;
+  bool ismore = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,7 @@ class _ReceiptInfoState extends State<ReceiptInfo> {
                 top: 15,
                 left: 20,
                 right: 20,
-                bottom: 40,
+                bottom: 20,
               ),
               width: 359,
               // height: 600,
@@ -76,129 +78,102 @@ class _ReceiptInfoState extends State<ReceiptInfo> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Column(
-                          spacing: 15,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "AC TYPES",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            Text("Alchik Bachat Khata"),
-                            Text(
-                              "INPUT AMOUNT(NRS)",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              height: 35,
-                              child: TextField(
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                                decoration: InputDecoration(
-                                  isDense: true,
-                                  contentPadding: EdgeInsets.symmetric(
-                                    vertical: 7,
-                                  ),
-                                  filled: true,
-                                  fillColor: Colors.white,
-                                  enabled: true,
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.black,
-                                      width: 3,
-                                    ),
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Colors.black,
-                                      width: 3,
-                                    ),
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // SizedBox(height: 1),
-                            BoldText('ACCOUNT OPEN DATE'),
-                            Text('2079-01-01'),
-                            BoldText('BALANCE'),
-                            Text('100000'),
-                            BoldText('BALANCE DATE'),
-                            Text('2079-01-01'),
-                            BoldText('INST AMOUNT(NRS)'),
-                            Text('50'),
-                            BoldText('DUE AMOUNT(NRS)'),
-                            Text('500'),
-                            BoldText('PB CHECK DATE'),
-                            Text('2080-01-01'),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          spacing: 15,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            BoldText('ACCOUNT'),
-                            Text("28"),
-                            BoldText('Total'),
-                            Text("1000"),
-                            // SizedBox(height: 1),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15.0),
-                              child: BoldText('MATURITY DATE'),
-                            ),
-                            Text('2080-01-01'),
-                            BoldText('TOTAL'),
-                            Text('1000'),
-                            Text(''),
-                            Text(''),
-                            BoldText('TOTAL'),
-                            Text('50'),
-                            BoldText('TOTAL'),
-                            Text('500'),
-                            BoldText('REMARKS INPUT'),
-                            SizedBox(
-                              height: 35,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 1.0),
-                                child: TextField(
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.center,
-                                  decoration: InputDecoration(
-                                    isDense: true,
-                                    contentPadding: EdgeInsets.symmetric(
-                                      vertical: 7,
-                                    ),
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    enabled: true,
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.black,
-                                        width: 3,
-                                      ),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.black,
-                                        width: 3,
-                                      ),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      Expanded(child: LeftColumn()),
+                      Expanded(child: RightColumn()),
                     ],
                   ),
+                  if (ismore) ...[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 10),
+                      child: Divider(color: Colors.white),
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(child: LeftColumn()),
+                        Expanded(child: RightColumn()),
+                      ],
+                    ),
+                  ],
                 ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(150, 3), //* height does nothing
+                  elevation: 5,
+                  backgroundColor: Color(0xffC2DDFF),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                ),
+                child: BoldText('Update'),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text(
+                          'Would you like to save changes?',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontWeight: FontWeight.w900),
+                        ),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('Amount: '),
+                                SizedBox(width: 8),
+                                Text('10000'),
+                              ],
+                            ),
+                            SizedBox(height: 20),
+                            Text(
+                              'Ram Bahadur Shrestha',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ],
+                        ),
+                        actionsAlignment: MainAxisAlignment.center,
+                        actions: [
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                Color(0xffAE0003),
+                              ),
+                              foregroundColor: WidgetStateProperty.all(
+                                Colors.white,
+                              ),
+                            ),
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: Text("Cancel"),
+                          ),
+                          SizedBox(width: 10),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(
+                                Color(0xffC2DDFF),
+                              ),
+                              foregroundColor: WidgetStateProperty.all(
+                                Colors.black,
+                              ),
+                            ),
+                            child: Text("Confirm"),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
               ),
             ),
           ],
