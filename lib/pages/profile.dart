@@ -2,6 +2,7 @@ import 'package:finacct/common/commonforall.dart';
 import 'package:finacct/common/bottom.dart';
 import 'package:finacct/pages/login.dart';
 import 'package:finacct/pages/menu.dart';
+import 'package:finacct/pages/register.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -29,18 +30,15 @@ class Profile extends StatelessWidget {
                 children: [
                   // First Container
                   Container(
-                    height: containerHeight,
                     width: double.infinity,
-                    padding: EdgeInsets.only(
-                      left: screenWidth * 0.04,
-                      right: screenWidth * 0.04,
-                    ),
+                    padding: EdgeInsets.all(screenWidth * 0.04),
                     decoration: BoxDecoration(
                       color: const Color(0xffC2DDFF),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: ListView(
-                      physics: NeverScrollableScrollPhysics(),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+
                       children: [
                         // First Row with ID and Logout
                         Row(
@@ -60,7 +58,7 @@ class Profile extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => LoginPage(),
+                                    builder: (context) => Register(),
                                   ),
                                 );
                               },

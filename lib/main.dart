@@ -5,6 +5,7 @@ import 'package:finacct/pages/menu.dart';
 import 'package:finacct/pages/profile.dart';
 import 'package:finacct/pages/receipt.dart';
 import 'package:finacct/pages/receipt_info.dart';
+import 'package:finacct/pages/receipt_report.dart';
 import 'package:finacct/pages/register.dart';
 import 'package:flutter/material.dart';
 
