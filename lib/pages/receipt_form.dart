@@ -5,14 +5,14 @@ import 'package:finacct/form/leftside.dart';
 import 'package:finacct/form/rightside.dart';
 import 'package:flutter/material.dart';
 
-class ReceiptInfo extends StatefulWidget {
-  const ReceiptInfo({super.key});
+class ReceiptForm extends StatefulWidget {
+  const ReceiptForm({super.key});
 
   @override
-  State<ReceiptInfo> createState() => _ReceiptInfoState();
+  State<ReceiptForm> createState() => _ReceiptFormState();
 }
 
-class _ReceiptInfoState extends State<ReceiptInfo> {
+class _ReceiptFormState extends State<ReceiptForm> {
   bool ismore = true;
   @override
   Widget build(BuildContext context) {
@@ -116,7 +116,7 @@ class _ReceiptInfoState extends State<ReceiptInfo> {
                     builder: (BuildContext context) {
                       return AlertDialog(
                         title: Text(
-                          'Would you like to save changes?',
+                          'Would you like to print the receipt?',
                           textAlign: TextAlign.center,
                           style: TextStyle(fontWeight: FontWeight.w900),
                         ),
@@ -124,6 +124,11 @@ class _ReceiptInfoState extends State<ReceiptInfo> {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            Text(
+                              'Ram Bahadur Shrestha',
+                              // style: TextStyle(fontSize: 14),
+                            ),
+                            SizedBox(height: 20),
                             Row(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -135,8 +140,22 @@ class _ReceiptInfoState extends State<ReceiptInfo> {
                             ),
                             SizedBox(height: 20),
                             Text(
-                              'Ram Bahadur Shrestha',
-                              style: TextStyle(fontSize: 20),
+                              'Amount Added',
+                              // style: TextStyle(fontSize: 20),
+                            ),
+                            Text(
+                              'Successfully',
+                              // style: TextStyle(fontSize: 20),
+                            ),
+                            Image.asset(
+                              'assets/common/finact.png',
+                              height: 100,
+                              width: 130,
+                            ),
+                            Icon(
+                              Icons.check_circle,
+                              color: Colors.green,
+                              size: 60,
                             ),
                           ],
                         ),
@@ -166,106 +185,7 @@ class _ReceiptInfoState extends State<ReceiptInfo> {
                             ),
                             child: Text("Confirm"),
                             onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text(
-                                      'Would you like to print the receipt?',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w900,
-                                      ),
-                                    ),
-                                    content: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Ram Bahadur Shrestha',
-                                          // style: TextStyle(fontSize: 14),
-                                        ),
-                                        SizedBox(height: 20),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text('Amount: '),
-                                            SizedBox(width: 8),
-                                            Text('10000'),
-                                          ],
-                                        ),
-                                        SizedBox(height: 20),
-                                        Text(
-                                          'Amount Added',
-                                          // style: TextStyle(fontSize: 20),
-                                        ),
-                                        Text(
-                                          'Successfully',
-                                          // style: TextStyle(fontSize: 20),
-                                        ),
-                                        Image.asset(
-                                          'assets/common/finact.png',
-                                          height: 100,
-                                          width: 130,
-                                        ),
-                                        Icon(
-                                          Icons.check_circle,
-                                          color: Colors.green,
-                                          size: 60,
-                                        ),
-                                      ],
-                                    ),
-                                    actionsAlignment: MainAxisAlignment.center,
-                                    actions: [
-                                      ElevatedButton(
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              WidgetStateProperty.all(
-                                                Color(0xffAE0003),
-                                              ),
-                                          foregroundColor:
-                                              WidgetStateProperty.all(
-                                                Colors.white,
-                                              ),
-                                        ),
-                                        onPressed:
-                                            () => Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                builder:
-                                                    (context) => ReceiptInfo(),
-                                              ),
-                                            ),
-                                        child: Text("Cancel"),
-                                      ),
-                                      SizedBox(width: 10),
-                                      ElevatedButton(
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              WidgetStateProperty.all(
-                                                Color(0xffC2DDFF),
-                                              ),
-                                          foregroundColor:
-                                              WidgetStateProperty.all(
-                                                Colors.black,
-                                              ),
-                                        ),
-                                        child: Text("Confirm"),
-                                        onPressed: () {
-                                          Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                              builder:
-                                                  (context) => ReceiptInfo(),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                              Navigator.of(context).pop();
                             },
                           ),
                         ],

@@ -1,7 +1,9 @@
 import 'package:finacct/common/bottom.dart';
 import 'package:finacct/common/commonforall.dart';
 import 'package:finacct/pages/profile.dart';
+import 'package:finacct/pages/push.dart';
 import 'package:finacct/pages/receipt.dart';
+import 'package:finacct/pages/receipt_form.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
@@ -14,7 +16,14 @@ class Menu extends StatelessWidget {
     'assets/menu/pull.png',
   ];
 
-  final List<Widget> paths = [Receipt(), Profile()];
+  final List<Widget> paths = [
+    Receipt(),
+    Container(),
+    ReceiptForm(),
+    Container(),
+    PushData(),
+    Profile(),
+  ];
   Menu({super.key});
 
   @override

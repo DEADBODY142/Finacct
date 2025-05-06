@@ -1,3 +1,4 @@
+import 'package:finacct/pages/menu.dart';
 import 'package:flutter/material.dart';
 
 class SearchWidget extends StatelessWidget {
@@ -12,7 +13,10 @@ class SearchWidget extends StatelessWidget {
           IconButton(
             iconSize: 30,
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Menu()),
+              );
             },
             icon: Icon(Icons.arrow_circle_left_outlined),
           ),

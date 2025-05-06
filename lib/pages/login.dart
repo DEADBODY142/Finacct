@@ -1,5 +1,6 @@
 import 'package:finacct/common/bottom.dart';
 import 'package:finacct/pages/menu.dart';
+import 'package:finacct/pages/register.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -160,12 +161,21 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         Center(
-                          child: Text(
-                            "Create new account",
-                            style: TextStyle(
-                              color: Color(0xff23538D),
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                          child: InkWell(
+                            onTap:
+                                () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Register(),
+                                  ),
+                                ),
+                            child: Text(
+                              "Create new account",
+                              style: TextStyle(
+                                color: Color(0xff23538D),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
@@ -181,11 +191,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-            SizedBox(height: 60),
-            BottomBar(),
+            // SizedBox(height: 60),
+            // BottomBar(),
           ],
         ),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }
