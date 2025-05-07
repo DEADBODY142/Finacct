@@ -14,7 +14,6 @@ class Profile extends StatelessWidget {
     var name = 'RAM BAHADUR SHRESTHA';
     var url = 'https://internal.infobraintechs.com/api/collector';
     var client = 'Demo';
-    final containerHeight = screenHeight * 0.3;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -29,18 +28,14 @@ class Profile extends StatelessWidget {
                 children: [
                   // First Container
                   Container(
-                    height: containerHeight,
                     width: double.infinity,
-                    padding: EdgeInsets.only(
-                      left: screenWidth * 0.04,
-                      right: screenWidth * 0.04,
-                    ),
+                    padding: EdgeInsets.all(screenWidth * 0.04),
                     decoration: BoxDecoration(
                       color: const Color(0xffC2DDFF),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: ListView(
-                      physics: NeverScrollableScrollPhysics(),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         // First Row with ID and Logout
                         Row(
@@ -82,14 +77,14 @@ class Profile extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height: screenHeight * 0.02),
-                        _buildImageWithTextRow(
+                        buildImageWithTextRow(
                           'assets/profile/URL.png',
                           'URL',
                           url,
                           screenWidth,
                         ),
                         SizedBox(height: screenHeight * 0.02),
-                        _buildImageWithTextRow(
+                        buildImageWithTextRow(
                           'assets/profile/client.png',
                           'Client Alies',
                           client,
@@ -131,7 +126,7 @@ class Profile extends StatelessWidget {
                         color: const Color(0xffC2DDFF),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: _buildImageWithTextRow(
+                      child: buildImageWithTextRow(
                         'assets/profile/fetch.png',
                         'Fetch New Records Only',
                         'Only download new customer records from the server',
@@ -156,7 +151,7 @@ class Profile extends StatelessWidget {
                         color: const Color(0xffC2DDFF),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: _buildImageWithTextRow(
+                      child: buildImageWithTextRow(
                         'assets/profile/fetchall.png',
                         'Fetch All Data',
                         'Replace all existing records with fresh data',
@@ -219,7 +214,7 @@ class Profile extends StatelessWidget {
   }
 
   // Helper method for other rows
-  Widget _buildImageWithTextRow(
+  Widget buildImageWithTextRow(
     String imagePath,
     String title,
     String subtitle,

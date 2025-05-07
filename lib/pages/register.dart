@@ -47,7 +47,7 @@ class _RegisterState extends State<Register> {
                           const Padding(
                             padding: EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              'Full Name',
+                              'Server url',
                               style: TextStyle(
                                 color: Color(0xff23538D),
                                 fontSize: 16,
@@ -80,49 +80,6 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     // // Phone Number Field
-                    // Padding(
-                    //   padding: const EdgeInsets.symmetric(horizontal: 20),
-                    //   child: Row(
-                    //     crossAxisAlignment: CrossAxisAlignment.center,
-                    //     children: [
-                    //       const Padding(
-                    //         padding: EdgeInsets.only(right: 15),
-                    //         child: Text(
-                    //           'Phone Number',
-                    //           style: TextStyle(
-                    //             color: Color(0xff23538D),
-                    //             fontSize: 16,
-                    //             fontWeight: FontWeight.w500,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //       Expanded(
-                    //         child: TextField(
-                    //           keyboardType: TextInputType.phone,
-                    //           decoration: InputDecoration(
-                    //             filled: true,
-                    //             fillColor: Colors.white,
-                    //             border: OutlineInputBorder(
-                    //               borderRadius: BorderRadius.circular(10),
-                    //               borderSide: BorderSide.none,
-                    //             ),
-                    //             contentPadding: const EdgeInsets.symmetric(
-                    //               vertical: 15,
-                    //               horizontal: 20,
-                    //             ),
-                    //             focusedBorder: OutlineInputBorder(
-                    //               borderRadius: BorderRadius.circular(10),
-                    //               borderSide: const BorderSide(
-                    //                 color: Color(0xff1F41BB),
-                    //                 width: 3.0,
-                    //               ),
-                    //             ),
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
                     // Password Field
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -132,7 +89,7 @@ class _RegisterState extends State<Register> {
                           const Padding(
                             padding: EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              'Password',
+                              'Client Alias',
                               style: TextStyle(
                                 color: Color(0xff23538D),
                                 fontSize: 16,
@@ -140,44 +97,26 @@ class _RegisterState extends State<Register> {
                               ),
                             ),
                           ),
-                          StatefulBuilder(
-                            builder: (context, setState) {
-                              return TextField(
-                                obscureText: _obscureText,
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: Colors.white,
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 15,
-                                    horizontal: 20,
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: const BorderSide(
-                                      color: Color(0xff1F41BB),
-                                      width: 3.0,
-                                    ),
-                                  ),
-                                  suffixIcon: IconButton(
-                                    icon: Icon(
-                                      _obscureText
-                                          ? Icons.visibility_off
-                                          : Icons.visibility,
-                                      color: const Color(0xff23538D),
-                                    ),
-                                    onPressed: () {
-                                      setState(() {
-                                        _obscureText = !_obscureText;
-                                      });
-                                    },
-                                  ),
+                          TextField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                vertical: 15,
+                                horizontal: 20,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: const BorderSide(
+                                  color: Color(0xff1F41BB),
+                                  width: 3.0,
                                 ),
-                              );
-                            },
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -199,7 +138,7 @@ class _RegisterState extends State<Register> {
                           minimumSize: const Size(320, 50),
                         ),
                         child: const Text(
-                          "Continue",
+                          "Save",
                           style: TextStyle(
                             color: Color(0xff23538D),
                             fontSize: 16,

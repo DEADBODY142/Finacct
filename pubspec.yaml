@@ -63,6 +63,7 @@ flutter:
     - assets/common/
     - assets/menu/
     - assets/profile/
+    - assets/receipt/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

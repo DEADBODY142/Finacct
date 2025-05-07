@@ -1,5 +1,6 @@
 import 'package:finacct/common/bottom.dart';
 import 'package:finacct/pages/menu.dart';
+import 'package:finacct/pages/register.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +11,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _obscureText = true;
+
   bool remember = false;
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -73,31 +76,71 @@ class _LoginPageState extends State<LoginPage> {
                                 width: 2,
                               ),
                             ),
-                            hintText: "Email",
+                            hintText: "Staff Id",
                           ),
                         ),
                         SizedBox(height: 20),
-                        TextField(
-                          controller: password,
-                          decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                color: Colors.blue.shade800,
-                                width: 2,
+
+                        // TextField(
+                        //   controller: password,
+                        //   decoration: InputDecoration(
+                        //     enabledBorder: OutlineInputBorder(
+                        //       borderRadius: BorderRadius.circular(10),
+                        //       borderSide: BorderSide(
+                        //         color: Colors.blue.shade800,
+                        //         width: 2,
+                        //       ),
+                        //     ),
+                        //     focusedBorder: OutlineInputBorder(
+                        //       borderRadius: BorderRadius.circular(10),
+                        //       borderSide: BorderSide(
+                        //         color: Colors.blue.shade800,
+                        //         width: 2,
+                        //       ),
+                        //     ),
+                        //     filled: true,
+                        //     fillColor: Colors.white,
+                        //     hintText: "Password",
+                        //   ),
+                        // ),
+                        StatefulBuilder(
+                          builder: (context, setState) {
+                            return TextField(
+                              obscureText: _obscureText,
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.blue.shade800,
+                                    width: 2,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.blue.shade800,
+                                    width: 2,
+                                  ),
+                                ),
+                                hintText: "Password",
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _obscureText
+                                        ? Icons.visibility_off
+                                        : Icons.visibility,
+                                    color: const Color(0xff23538D),
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _obscureText = !_obscureText;
+                                    });
+                                  },
+                                ),
                               ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                color: Colors.blue.shade800,
-                                width: 2,
-                              ),
-                            ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            hintText: "Password",
-                          ),
+                            );
+                          },
                         ),
                         SizedBox(height: 10),
                         Row(
@@ -160,12 +203,21 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         Center(
-                          child: Text(
-                            "Create new account",
-                            style: TextStyle(
-                              color: Color(0xff23538D),
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                          child: InkWell(
+                            onTap:
+                                () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Register(),
+                                  ),
+                                ),
+                            child: Text(
+                              "Settings",
+                              style: TextStyle(
+                                color: Color(0xff23538D),
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
@@ -181,11 +233,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ],
             ),
-            SizedBox(height: 60),
-            BottomBar(),
+            // SizedBox(height: 60),
+            // BottomBar(),
           ],
         ),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

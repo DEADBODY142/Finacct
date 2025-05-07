@@ -1,11 +1,5 @@
-import 'package:finacct/common/commonforall.dart';
-import 'package:finacct/demo.dart';
 import 'package:finacct/pages/login.dart';
-import 'package:finacct/pages/menu.dart';
-import 'package:finacct/pages/profile.dart';
-import 'package:finacct/pages/receipt.dart';
-import 'package:finacct/pages/receipt_info.dart';
-import 'package:finacct/pages/register.dart';
+// import 'package:finacct/feature/auth/ui/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
