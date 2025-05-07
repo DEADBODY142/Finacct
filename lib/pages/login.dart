@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                                 width: 2,
                               ),
                             ),
-                            hintText: "Email",
+                            hintText: "Client Alias",
                           ),
                         ),
                         SizedBox(height: 20),
