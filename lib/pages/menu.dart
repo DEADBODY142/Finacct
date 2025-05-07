@@ -3,7 +3,7 @@ import 'package:finacct/common/commonforall.dart';
 import 'package:finacct/pages/profile.dart';
 import 'package:finacct/pages/push.dart';
 import 'package:finacct/pages/receipt.dart';
-import 'package:finacct/pages/receipt_form.dart';
+import 'package:finacct/pages/receipt_report.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
@@ -19,7 +19,7 @@ class Menu extends StatelessWidget {
   final List<Widget> paths = [
     Receipt(),
     Container(),
-    ReceiptForm(),
+    ReceiptReport(),
     Container(),
     PushData(),
     Profile(),
